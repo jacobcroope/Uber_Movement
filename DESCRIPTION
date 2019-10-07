@@ -1,0 +1,7 @@
+Title: Uber Movement Cincinatti Data Set
+License: MIT
+DisplayMode: Normal
+Author: Jacob Roope <jacobcroope@gmail.com>
+AuthorUrl: http://www.rstudio.com/
+Type: Shiny
+Tags: leaflet selectize datatables absolutepanel
