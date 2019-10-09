@@ -1,6 +1,6 @@
-# R Scripts for a comparative analysis of Uber Movement Cincinnatti against Publicly Available Data Sets. 
+# R Scripts for a comparative analysis of Uber Movement Cincinnati against Publicly Available Data Sets. 
 
-Uber Movement has published a data set of mean travel time between geographic units in select cities around the world. Cincinnatti was one of the selected cities and so there was interest in benchmarking Google Routing, ArcGIS (ESRI), and OSRM (Open Source Routing Machine) against the real world data set that Uber provided. Of particular interest was comparing predicted travel time, distance, and route choice between these services. As Uber does not provide low level enough data to compare route choice and distance an average travel distance between the three services is used as the comparative value for each Uber Route. Route choice is assessed graphically as the polyline algorithm returned by the various services does not easily intersect and allow comparitive analysis in the limited time available to prepare. 
+Uber Movement has published a data set of mean travel time between geographic units in select cities around the world. Cincinnati was one of the selected cities and so there was interest in benchmarking Google Routing, ArcGIS (ESRI), and OSRM (Open Source Routing Machine) against the real world data set that Uber provided. The main interest was comparing predicted travel time, distance, and route choice between these services. As Uber only provides aggregated data it is not possible to compare route choice and distance in the Uber data set. Thus, an average travel distance between the three services is used as the comparative value for each Uber Route. Route choice is assessed graphically as the polyline algorithm returned by the various services does not easily intersect and allow comparative  analysis in the limited time available to prepare. 
 
 Prepared for the 2019 OHIO GIS conference (Sep 2019)
 
@@ -108,4 +108,4 @@ Would be useful to do a regression test against services randomly polled from ar
 
 Write an algorithm to compare polylines or find a polyline comparitor already made and adjust for creating combined routes to highlight differences/sameness. 
 
-Adjust the routing query scripts to record turn by turn so as to breakdown a route in further detail and compare against other services which should probably be combined with a polyline comparitor  
+Adjust the routing query scripts to record turn by turn so as to breakdown a route in further detail and compare against other services which should probably be combined with a polyline comparator.  
