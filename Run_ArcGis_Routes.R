@@ -3,12 +3,16 @@ require("jsonlite")
 require("tidyverse")
 # Base URL Slug https://route.arcgis.com/arcgis/rest/services/World/Route/NAServer/Route_World/solve?<PARAMETERS>
 url_base <- "https://route.arcgis.com/arcgis/rest/services/World/Route/NAServer/Route_World/solve?"
-source_lat <- st_coordinates(Route_Source)[1]
-source_lon <- st_coordinates(Route_Source)[2]
-dest_lat <-  st_coordinates(Route_Dest)[1]
-dest_lon <-  st_coordinates(Route_Dest)[2]
 token <- "your_key_here"
-stops = paste0("stops=",source_lon,",",source_lat,";",dest_lon,",",dest_lat)
+
+
+# Used to test an initial route and create the form of the ending data set.
+
+# source_lat <- st_coordinates(Route_Source)[1]
+# source_lon <- st_coordinates(Route_Source)[2]
+# dest_lat <-  st_coordinates(Route_Dest)[1]
+# dest_lon <-  st_coordinates(Route_Dest)[2]
+# stops = paste0("stops=",source_lon,",",source_lat,";",dest_lon,",",dest_lat)
 # arcgis_response <- fromJSON(paste0(url_base,stops,"&f=json&token=",token))
 # #
 # route_vector_transposed <- data.frame(t(data.frame(arcgis_response$routes$features$geometry$paths[[1]])))
@@ -33,7 +37,6 @@ for (i in (4:nrow(Route_Sources))) {
   count <- 0
   for (j in (1:nrow(Routes_to_Run))) {
     Route_Dest <- Routes_to_Run[j,]
-#     count <- count + 1
 #     ## Forward ##
 #
     if (Route_Dest$MOVEMENT_ID == Route_Source$MOVEMENT_ID) {
@@ -45,9 +48,11 @@ for (i in (4:nrow(Route_Sources))) {
     dest_lat <-  st_coordinates(Route_Dest)[1]
     dest_lon <-  st_coordinates(Route_Dest)[2]
     stops = paste0("stops=",source_lon,",",source_lat,";",dest_lon,",",dest_lat)
-    print (paste0(url_base,stops,"&f=json&token=",token))
+    # Send the Query.
     arcgis_response <- fromJSON(paste0(url_base,stops,"&f=json&token=",token))
-    # if(arcgis_response$error$code != "400") {
+
+    # if(arcgis_response$error$code != "400") {  # This ended up being not neccessary.
+    # Do data manip and add to routing table for ArcGIS
     route_vector_transposed <- data.frame(t(data.frame(arcgis_response$routes$features$geometry$paths[[1]])))
     route_geometry <- filter(route_vector_transposed,route_vector_transposed>0)
     route_geometry <- cbind(route_geometry,(data.frame(t(data.frame(arcgis_response$routes$features$geometry$paths[[1]]))) %>% filter(route_vector_transposed<0)))
