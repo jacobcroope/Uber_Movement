@@ -102,3 +102,10 @@ Used Shiny to deploy to shinyapps.io
 ## Acknowledgments
 
 * Thank you to the people behind [GoogleWays](https://github.com/SymbolixAU/googleway) plugin which made many of the polyline conversion much easier. 
+
+## Future to Do: 
+Would be useful to do a regression test against services randomly polled from around the country and try to determine a correction factor to be applied based upon region of country, urban, rural, and other factors that might be needed. Can probably be automated to run and compare all the datasets across multiple quarters of Uber Movement Data. 
+
+Write an algorithm to compare polylines or find a polyline comparitor already made and adjust for creating combined routes to highlight differences/sameness. 
+
+Adjust the Routing algorithm to record turn by turn so as to breakdown a route in further detail and compare against other services. 
