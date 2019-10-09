@@ -108,4 +108,4 @@ Would be useful to do a regression test against services randomly polled from ar
 
 Write an algorithm to compare polylines or find a polyline comparitor already made and adjust for creating combined routes to highlight differences/sameness. 
 
-Adjust the Routing algorithm to record turn by turn so as to breakdown a route in further detail and compare against other services. 
+Adjust the routing query scripts to record turn by turn so as to breakdown a route in further detail and compare against other services which should probably be combined with a polyline comparitor  
